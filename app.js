@@ -3,6 +3,8 @@ const express = require("express");
 const productRouter = require("./routes/productRoutes");
 const userRouter = require("./routes/userRoutes");
 
+const globalErrorHandler = require("./controllers/errorController");
+
 const app = express();
 app.use(express.json());
 
@@ -15,15 +17,6 @@ app.all("*", (req, res) => {
 });
 
 //Global error handling middleware
-app.use((err, req, res, next) => {
-    const statusCode = err.statusCode || 500;
-    const status = err.status || "error";
-
-    res.status(statusCode).json({
-        status,
-        error: err,
-        message: err.message
-    });
-});
+app.use(globalErrorHandler);
 
 module.exports = app;
