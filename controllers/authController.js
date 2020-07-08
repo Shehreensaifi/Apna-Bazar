@@ -79,12 +79,17 @@ exports.protect = catchAsync(async (req, res, next) => {
     next();
 });
 
-exports.isSeller = (req, res, next) => {
-    if (req.user.role !== "seller") {
-        return next(
-            new AppError("You don't have permission to perform this task!", 403)
-        );
-    }
+exports.restrictTo = role => {
+    return (req, res, next) => {
+        if (req.user.role !== role) {
+            return next(
+                new AppError(
+                    "You don't have permission to perform this task!",
+                    403
+                )
+            );
+        }
 
-    next();
+        next();
+    };
 };

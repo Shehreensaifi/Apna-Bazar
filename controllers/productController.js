@@ -32,8 +32,10 @@ exports.createProduct = catchAsync(async (req, res, next) => {
     const tour = await Product.create({
         name: req.body.name,
         price: req.body.price,
-        image: req.body.image
+        image: req.body.image,
+        seller: req.user._id
     });
+
     res.status(201).json({
         status: "success",
         data: {
@@ -43,8 +45,9 @@ exports.createProduct = catchAsync(async (req, res, next) => {
 });
 
 exports.updateProduct = catchAsync(async (req, res, next) => {
-    const product = await Product.findByIdAndUpdate(
-        req.params.id,
+    //find and update product belonging to the current user
+    const product = await Product.findOneAndUpdate(
+        { _id: req.params.id, seller: req.user._id },
         {
             name: req.body.name,
             price: req.body.price,
@@ -67,12 +70,31 @@ exports.updateProduct = catchAsync(async (req, res, next) => {
 });
 
 exports.deleteProduct = catchAsync(async (req, res, next) => {
-    const product = await Product.findByIdAndDelete(req.params.id);
+    //find and delete product belonging to the current user
+    const product = await Product.findOneAndDelete({
+        _id: req.params.id,
+        seller: req.user._id
+    });
+
     if (!product) {
         return next(new AppError("No document found with this ID", 404));
     }
     res.status(204).json({
         status: "success",
         data: null
+    });
+});
+
+exports.getMyProducts = catchAsync(async (req, res, next) => {
+    const products = await Product.find(
+        { seller: req.user._id },
+        "-seller -__v"
+    );
+    res.status(200).json({
+        status: "success",
+        results: products.length,
+        data: {
+            products
+        }
     });
 });

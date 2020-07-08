@@ -13,7 +13,8 @@ const app = require("./app");
 mongoose.connect("mongodb://localhost:27017/apna_bazar", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: false
+    useFindAndModify: false,
+    useCreateIndex: true
 });
 
 const port = process.env.PORT || 3000;
