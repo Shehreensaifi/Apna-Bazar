@@ -20,6 +20,10 @@ const orderSchema = new mongoose.Schema({
         default: "pending",
         //User can set it cancelled or removed but Seller can set it to any except removed
         enum: ["pending", "confirmed", "delivered", "cancelled", "removed"]
+    },
+    isPaid: {
+        type: Boolean,
+        default: false
     }
 });
 

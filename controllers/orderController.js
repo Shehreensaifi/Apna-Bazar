@@ -8,7 +8,10 @@ const AppError = require("../utils/appError");
 ///////////USER ORDERS CONTROLLERS/////////////////////////
 ///////////////////////////////////////////////////////////
 exports.getAllOrders = catchAsync(async (req, res, next) => {
-    const orders = await Order.find({ user: req.user._id });
+    const orders = await Order.find({
+        user: req.user._id,
+        status: { $nin: ["removed"] }
+    }).sort("-createdAt");
 
     res.status(200).json({
         status: "success",
@@ -22,7 +25,7 @@ exports.getAllOrders = catchAsync(async (req, res, next) => {
 exports.createOrder = catchAsync(async (req, res, next) => {
     const product = await Product.findById(req.body.product);
     if (!product) {
-        return next(new AppError("No document belong to this ID...", 404));
+        return next(new AppError("No document belong to this ID", 404));
     }
     const order = await Order.create({
         user: req.user._id,
@@ -52,7 +55,11 @@ exports.cancelOrRemoveOrder = catchAsync(async (req, res, next) => {
         { new: true, runValidators: true }
     );
     if (!order) {
-        return next(new AppError("Document with this ID doesn't exist.."));
+        return next(
+            new AppError(
+                "Document with this ID doesn't exist or this document doesn't belong to this user"
+            )
+        );
     }
     res.status(200).json({
         status: "success",
@@ -63,11 +70,13 @@ exports.cancelOrRemoveOrder = catchAsync(async (req, res, next) => {
 });
 
 ///////////////////////////////////////////////////////////
-///////////USER ORDERS CONTROLLERS/////////////////////////
+///////////SELLER ORDERS CONTROLLERS/////////////////////////
 ///////////////////////////////////////////////////////////
 
 exports.getAllSellerOrders = catchAsync(async (req, res, next) => {
-    const orders = await Order.find({ "product.seller": req.user._id });
+    const orders = await Order.find({ "product.seller": req.user._id }).sort(
+        "-createdAt"
+    );
 
     res.status(200).json({
         status: "success",
@@ -95,7 +104,12 @@ exports.updateOrderStatus = catchAsync(async (req, res, next) => {
         }
     );
     if (!order) {
-        return next(new AppError("No document exists with that Id", 404));
+        return next(
+            new AppError(
+                "No document exists with that Id or this document doesn't belong to this seller",
+                404
+            )
+        );
     }
     res.status(200).json({
         status: "success",

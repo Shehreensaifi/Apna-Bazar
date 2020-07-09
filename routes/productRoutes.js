@@ -17,6 +17,8 @@ router
     .post(
         authController.protect,
         authController.restrictTo("seller"),
+        productController.uploadProductPhoto,
+        productController.resizeUserPhoto,
         productController.createProduct
     );
 
@@ -26,6 +28,8 @@ router
     .patch(
         authController.protect,
         authController.restrictTo("seller"),
+        productController.uploadProductPhoto,
+        productController.resizeUserPhoto,
         productController.updateProduct
     )
     .delete(

@@ -8,6 +8,7 @@ const globalErrorHandler = require("./controllers/errorController");
 
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/v1/products", productRouter);
 app.use("/api/v1/users", userRouter);
