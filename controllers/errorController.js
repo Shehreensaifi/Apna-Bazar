@@ -27,7 +27,7 @@ const sendErrorProd = (err, res) => {
         });
     }
 
-    //B. Programming orother unknown error:don't leak error details
+    //B. Programming or other unknown error:don't leak error details
     //1. Log the error
     console.log("ERROR:", err);
     //2. Send generic error

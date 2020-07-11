@@ -42,7 +42,12 @@ exports.resizeUserPhoto = catchAsync(async (req, res, next) => {
 });
 
 exports.getAllProducts = catchAsync(async (req, res, next) => {
-    const features = new APIFeatures(Product.find(), req.query).filter().sort();
+    const features = new APIFeatures(Product.find(), req.query)
+        .filter()
+        .sort()
+        .limitFields()
+        .paginate();
+
     const products = await features.query;
     res.status(200).json({
         status: "success",
@@ -198,7 +203,7 @@ exports.updateProduct = catchAsync(async (req, res, next) => {
 });
 
 exports.deleteProduct = catchAsync(async (req, res, next) => {
-    //find and delete product belonging to the current user
+    //find and delete product belonging to the current user only
     const product = await Product.findOne({
         _id: req.params.id,
         seller: req.user._id
