@@ -10,12 +10,19 @@ process.on("uncaughtException", err => {
 dotenv.config({ path: "./config.env" });
 const app = require("./app");
 
-mongoose.connect("mongodb://localhost:27017/apna_bazar", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true
-});
+const DB = process.env.DATABASE.replace(
+    "<password>",
+    process.env.DATABASE_PASSWORD
+);
+
+mongoose
+    .connect(DB, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false,
+        useCreateIndex: true
+    })
+    .then(() => console.log("DB connection successful"));
 
 const port = process.env.PORT || 3000;
 const server = app.listen(port, () => {
@@ -27,5 +34,12 @@ process.on("unhandledRejection", err => {
     console.log(err.name, err.message);
     server.close(() => {
         process.exit(1);
+    });
+});
+
+process.on("SIGTERM", () => {
+    console.log("👋 SIGTERM received. Shutting down gracefully..");
+    server.close(() => {
+        console.log("💣Process terminated");
     });
 });
