@@ -1,0 +1,14 @@
+extends base
+
+block content
+    .container
+        each product in products
+            .item
+                img(src=`${product.image}`, alt="")
+                .details
+                    .item-name= `${product.name}`
+                    .item-price $#{product.price}
+                button.button-more More
+
+    script(src="./js/home.js")
+
