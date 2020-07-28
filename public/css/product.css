@@ -1,0 +1,43 @@
+@import "./style.css";
+main {
+    width: 100%;
+    text-align: center;
+}
+.container {
+    margin: 4rem;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px double rgb(211, 210, 210);
+    border-radius: 1rem;
+    padding: 1rem;
+}
+.container > img {
+    border-radius: 1rem;
+    height: 50vh;
+}
+.details {
+    width: 50vh;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.details > h2 {
+    color: white;
+}
+
+#submit {
+    width: 100%;
+    margin-top: 0.5rem;
+    background-color: rgb(112, 111, 110);
+    border-style: none;
+    color: white;
+    padding: 0.8rem 1rem;
+    border-radius: 1rem;
+}
+#submit:hover {
+    background-color: rgb(87, 86, 85);
+}

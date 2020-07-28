@@ -3,5 +3,18 @@ const catchAsync = require("../utils/catchAsync");
 
 exports.getHomePage = catchAsync(async (req, res, next) => {
     const products = await Product.find();
-    res.status(200).render("home-page", { products });
+    res.status(200).render("home", { products });
+});
+
+exports.getProductDetails = catchAsync(async (req, res, next) => {
+    const product = await Product.findById(req.params.id);
+    res.status(200).render("product", { product });
+});
+
+exports.login = catchAsync(async (req, res, next) => {
+    res.status(200).render("login");
+});
+
+exports.signup = catchAsync(async (req, res, next) => {
+    res.status(200).render("signup");
 });

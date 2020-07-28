@@ -3,7 +3,9 @@ html
     head
         meta(charset='UTF-8')
         meta(name='viewport' content='width=device-width' initial-scale=1.0)
-        link(rel="stylesheet", href="/css/style.css")
+
+        block links
+        
         title Apna Bazar
     body
 
@@ -12,9 +14,9 @@ html
             .navbar-links
                 ul
                     li
-                        a(href='#') login
+                        a(href='/login') login
                     li
-                        a(href='#') signup
+                        a(href='signup') signup
                     
             a.toggle-button(href="#") 
                 span.bar
@@ -22,3 +24,5 @@ html
                 span.bar
 
         block content
+
+        script(src="/js/home.js")

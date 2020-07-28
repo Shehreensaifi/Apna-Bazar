@@ -1,0 +1,12 @@
+extends base
+
+block links
+    link(rel="stylesheet", href="/css/login.css")
+
+
+block content
+    main
+        form.container
+            input(type='email' placeholder='enter email')
+            input(type='password' placeholder='enter password')
+            input(type="submit", value="Login")

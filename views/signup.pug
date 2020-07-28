@@ -1,0 +1,16 @@
+extends base
+
+block links
+    link(rel="stylesheet", href="/css/signup.css")
+
+block content
+    main
+        form.container
+            input(type='text' placeholder='enter name')
+            input(type='email' placeholder='enter email')
+            input(type='password' placeholder='enter password')
+            input(type='password' placeholder='confirm password')
+            .role
+                input(type="checkbox")
+                label Do you want to sell?
+            input(type="submit", value="Signup")

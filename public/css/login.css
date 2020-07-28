@@ -1,0 +1,30 @@
+@import url("style.css");
+
+main {
+    text-align: center;
+}
+.container {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 4rem;
+    border: 2px double rgb(211, 210, 210);
+    border-radius: 1rem;
+    padding: 1rem;
+}
+.container > * {
+    margin-top: 1rem;
+    align-self: center;
+}
+input[type="submit"] {
+    margin-top: 0.5rem;
+    background-color: rgb(112, 111, 110);
+    border-style: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+}
+input[type="submit"]:hover {
+    background-color: rgb(87, 86, 85);
+    transform: scale(1.1);
+}
