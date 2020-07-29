@@ -1,6 +1,7 @@
 const Product = require("../models/productModel");
 const Order = require("../models/orderModel");
 const catchAsync = require("../utils/catchAsync");
+const AppError = require("../utils/appError");
 
 exports.getHomePage = catchAsync(async (req, res, next) => {
     const products = await Product.find();
@@ -9,6 +10,9 @@ exports.getHomePage = catchAsync(async (req, res, next) => {
 
 exports.getProductDetails = catchAsync(async (req, res, next) => {
     const product = await Product.findById(req.params.id);
+
+    if (!product) return next(new AppError("No Product Found!", 404));
+
     res.status(200).render("product", { product });
 });
 

@@ -11,7 +11,7 @@ block content
                 .item
                     .status
                         h4=order.status
-                    img(src=`${order.product.image}`, alt="", srcset="")
+                    img(src=`${order.product.image}`, alt=`${order.product.name}`)
                     .detail
                         h3=order.product.name
                         button More

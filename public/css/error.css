@@ -1,0 +1,9 @@
+main > h2 {
+    text-align: center;
+    color: white;
+    background-color: rgb(61, 31, 2);
+    width: auto;
+    padding: 2rem;
+    margin: 2rem;
+    border-radius: 1rem;
+}
