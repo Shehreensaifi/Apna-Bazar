@@ -1,4 +1,5 @@
 const Product = require("../models/productModel");
+const Order = require("../models/orderModel");
 const catchAsync = require("../utils/catchAsync");
 
 exports.getHomePage = catchAsync(async (req, res, next) => {
@@ -17,4 +18,13 @@ exports.login = catchAsync(async (req, res, next) => {
 
 exports.signup = catchAsync(async (req, res, next) => {
     res.status(200).render("signup");
+});
+
+exports.getOrders = catchAsync(async (req, res, next) => {
+    const orders = await Order.find({
+        user: req.user._id,
+        status: { $nin: ["removed"] }
+    }).sort("-createdAt");
+
+    res.status(200).render("order", { orders });
 });

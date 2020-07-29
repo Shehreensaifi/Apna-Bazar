@@ -1,0 +1,21 @@
+extends base
+
+block links
+    link(rel="stylesheet", href="/css/order.css")
+
+block content
+    h2.title Your Orders
+    main
+        .container
+            -orders.forEach(order=>{
+                .item
+                    .status
+                        h4=order.status
+                    img(src=`${order.product.image}`, alt="", srcset="")
+                    .detail
+                        h3=order.product.name
+                        button More
+                    h2.price= `₹${order.product.price}`
+            -});
+            
+

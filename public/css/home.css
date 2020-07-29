@@ -1,6 +1,4 @@
-@import "./style.css";
 .container {
-    margin-top: 3rem;
     display: grid;
     padding: 1rem;
     grid-template-columns: repeat(3, 30%);

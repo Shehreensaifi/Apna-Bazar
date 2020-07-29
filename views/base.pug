@@ -3,21 +3,28 @@ html
     head
         meta(charset='UTF-8')
         meta(name='viewport' content='width=device-width' initial-scale=1.0)
+        //- <script src="https://kit.fontawesome.com/b391407817.js" crossorigin="anonymous"></script>
 
+        link(rel="stylesheet", href="/css/style.css")
         block links
-        
+
         title Apna Bazar
     body
 
         nav.navbar
-            .brand-title Apna Bazar
+            a.brand-title(href="/") Apna Bazar
             .navbar-links
                 ul
                     li
-                        a(href='/login') login
+                        a(href='/orders') orders
+                    li
+                        a(href='/login') login 
                     li
                         a(href='signup') signup
-                    
+                    li
+                        a(href='#') logout 
+
+
             a.toggle-button(href="#") 
                 span.bar
                 span.bar

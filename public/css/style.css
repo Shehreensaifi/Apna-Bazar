@@ -19,9 +19,9 @@ body {
 }
 .navbar {
     padding: 0 1rem;
-    position: fixed;
+    /* position: fixed;
     width: 100%;
-    top: 0;
+    top: 0; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,6 +40,8 @@ body {
     color: white;
 }
 .brand-title {
+    text-decoration: none;
+    color: white;
     font-size: 1.5rem;
     margin: 0.5rem;
 }
