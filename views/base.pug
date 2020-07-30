@@ -15,14 +15,17 @@ html
             a.brand-title(href="/") Apna Bazar
             .navbar-links
                 ul
-                    li
-                        a(href='/orders') orders
-                    li
-                        a(href='/login') login 
-                    li
-                        a(href='signup') signup
-                    li
-                        a(href='#') logout 
+                    if user
+                        li
+                            a(href='/orders') orders
+                        li
+                            a#logoutOption logout
+                    else
+                        li
+                            a(href='/login') login 
+                        li
+                            a(href='signup') signup
+
 
 
             a.toggle-button(href="#") 
@@ -32,4 +35,5 @@ html
 
         block content
 
+        script(src='https://unpkg.com/axios/dist/axios.min.js')
         script(src="/js/home.js")

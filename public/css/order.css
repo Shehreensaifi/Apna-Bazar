@@ -1,5 +1,7 @@
+#title-wrapper {
+    text-align: center;
+}
 .title {
-    margin-left: 43vw;
     padding: 1rem;
     display: inline-block;
     background-color: violet;
@@ -44,4 +46,15 @@ img {
 }
 .detail > * {
     align-self: center;
+}
+
+@media only screen and (max-width: 50rem) {
+    .container {
+        grid-template-columns: repeat(2, 40%);
+    }
+}
+@media only screen and (max-width: 40rem) {
+    .container {
+        grid-template-columns: repeat(1, 80%);
+    }
 }
