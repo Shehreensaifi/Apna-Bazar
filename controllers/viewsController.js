@@ -1,5 +1,5 @@
+const axios = require("axios");
 const Product = require("../models/productModel");
-const Order = require("../models/orderModel");
 const catchAsync = require("../utils/catchAsync");
 const AppError = require("../utils/appError");
 
@@ -25,10 +25,37 @@ exports.signup = catchAsync(async (req, res, next) => {
 });
 
 exports.getOrders = catchAsync(async (req, res, next) => {
-    const orders = await Order.find({
-        user: req.user._id,
-        status: { $nin: ["removed"] }
-    }).sort("-createdAt");
+    //FOR USER ORDERS
+    if (req.user.role === "user") {
+        const response = await axios({
+            method: "GET",
+            url: "http://127.0.0.1:8000/api/v1/orders",
+            headers: {
+                cookie: `jwt=${req.cookies.jwt}`
+            }
+        });
+        if (response.data.status === "success")
+            return res
+                .status(200)
+                .render("order", { orders: response.data.data.orders });
+        return next(
+            new AppError("Something went wrong. Please try again later", 500)
+        );
+    }
 
-    res.status(200).render("order", { orders });
+    //FOR SELLER ORDERS
+    const response = await axios({
+        method: "GET",
+        url: "http://127.0.0.1:8000/api/v1/orders/seller",
+        headers: {
+            cookie: `jwt=${req.cookies.jwt}`
+        }
+    });
+    if (response.data.status === "success")
+        return res
+            .status(200)
+            .render("order", { orders: response.data.data.orders });
+    return next(
+        new AppError("Something went wrong. Please try again later", 500)
+    );
 });
