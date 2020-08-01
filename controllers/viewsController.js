@@ -29,7 +29,7 @@ exports.getOrders = catchAsync(async (req, res, next) => {
     if (req.user.role === "user") {
         const response = await axios({
             method: "GET",
-            url: "http://127.0.0.1:8000/api/v1/orders",
+            url: `${req.protocol}://${req.headers.host}/api/v1/orders`,
             headers: {
                 cookie: `jwt=${req.cookies.jwt}`
             }
@@ -46,7 +46,7 @@ exports.getOrders = catchAsync(async (req, res, next) => {
     //FOR SELLER ORDERS
     const response = await axios({
         method: "GET",
-        url: "http://127.0.0.1:8000/api/v1/orders/seller",
+        url: `${req.protocol}://${req.headers.host}/api/v1/orders/seller`,
         headers: {
             cookie: `jwt=${req.cookies.jwt}`
         }

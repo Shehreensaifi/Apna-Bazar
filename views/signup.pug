@@ -6,11 +6,13 @@ block links
 block content
     main
         form.container
-            input(type='text' placeholder='enter name')
-            input(type='email' placeholder='enter email')
-            input(type='password' placeholder='enter password')
-            input(type='password' placeholder='confirm password')
+            input#name(type='text' placeholder='enter name' required)
+            input#email(type='email' placeholder='enter email' required)
+            input#password(type='password' placeholder='enter password' required minlength='8')
+            input#password-confirm(type='password' placeholder='confirm password' required minlength='8')
             .role
-                input(type="checkbox")
+                input#role(type="checkbox")
                 label Do you want to sell?
             input(type="submit", value="Signup")
+
+    script(src='/js/signup.js')

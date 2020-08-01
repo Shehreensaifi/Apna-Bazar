@@ -1,9 +1,9 @@
 /*eslint-disable */
-const submitButton = document.querySelector("input[type='submit']");
+const form = document.querySelector(".container");
 const emailTextField = document.querySelector("input[type='email'");
 const passwordTextField = document.querySelector("input[type='password'");
 
-submitButton.addEventListener("click", async e => {
+form.addEventListener("submit", async e => {
     e.preventDefault();
     try {
         const res = await axios({
@@ -24,7 +24,7 @@ submitButton.addEventListener("click", async e => {
             location.assign("/");
         }
     } catch (e) {
-        alert(e);
+        alert(e.response.data.message);
         // const markUp = `<div>${e}</div>`;
         // document.querySelector("body").insertAdjacentHTML("afterbegin", markUp);
     }
