@@ -16,13 +16,13 @@ exports.getProductDetails = catchAsync(async (req, res, next) => {
     res.status(200).render("product", { product });
 });
 
-exports.login = catchAsync(async (req, res, next) => {
+exports.login = (req, res) => {
     res.status(200).render("login");
-});
+};
 
-exports.signup = catchAsync(async (req, res, next) => {
+exports.signup = (req, res) => {
     res.status(200).render("signup");
-});
+};
 
 exports.getOrders = catchAsync(async (req, res, next) => {
     //FOR USER ORDERS
@@ -58,4 +58,12 @@ exports.getOrders = catchAsync(async (req, res, next) => {
     return next(
         new AppError("Something went wrong. Please try again later", 500)
     );
+});
+
+exports.getAllProductsPage = catchAsync(async (req, res, next) => {
+    const products = await Product.find(
+        { seller: req.user._id },
+        "-seller -__v"
+    );
+    res.status(200).render("sellerProducts", { products });
 });

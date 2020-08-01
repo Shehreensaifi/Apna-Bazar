@@ -1,0 +1,18 @@
+extends base
+
+block links
+    link(rel="stylesheet", href="/css/sellerProducts.css")
+
+block content
+    div#title-wrapper
+        h2.title Your Products
+    main
+        .container
+            -products.forEach(product=>{
+                .item
+                    img(src=`${product.image}`, alt=`${product.name}`)
+                    .detail
+                        h3=product.name
+                        button More
+                    h2.price= `₹${product.price}`
+            -});

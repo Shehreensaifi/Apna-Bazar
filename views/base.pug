@@ -16,6 +16,9 @@ html
             .navbar-links
                 ul
                     if user
+                        if user.role==='seller'
+                            li
+                                a(href='/products') my products
                         li
                             a(href='/orders') orders
                         li
