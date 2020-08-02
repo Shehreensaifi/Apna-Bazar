@@ -5,7 +5,7 @@ const AppError = require("../utils/appError");
 
 exports.getHomePage = catchAsync(async (req, res, next) => {
     const products = await Product.find();
-    res.status(200).render("home", { products });
+    res.status(200).render("products/index", { products });
 });
 
 exports.getProductDetails = catchAsync(async (req, res, next) => {
@@ -13,7 +13,7 @@ exports.getProductDetails = catchAsync(async (req, res, next) => {
 
     if (!product) return next(new AppError("No Product Found!", 404));
 
-    res.status(200).render("product", { product });
+    res.status(200).render("products/show", { product });
 });
 
 exports.login = (req, res) => {
@@ -37,7 +37,7 @@ exports.getOrders = catchAsync(async (req, res, next) => {
         if (response.data.status === "success")
             return res
                 .status(200)
-                .render("order", { orders: response.data.data.orders });
+                .render("orders/index", { orders: response.data.data.orders });
         return next(
             new AppError("Something went wrong. Please try again later", 500)
         );
@@ -54,16 +54,21 @@ exports.getOrders = catchAsync(async (req, res, next) => {
     if (response.data.status === "success")
         return res
             .status(200)
-            .render("order", { orders: response.data.data.orders });
+            .render("orders/index", { orders: response.data.data.orders });
     return next(
         new AppError("Something went wrong. Please try again later", 500)
     );
 });
 
+//Seller's all products page
 exports.getAllProductsPage = catchAsync(async (req, res, next) => {
     const products = await Product.find(
         { seller: req.user._id },
         "-seller -__v"
     );
-    res.status(200).render("sellerProducts", { products });
+    res.status(200).render("products/seller/index", { products });
 });
+
+exports.getNewProductPage = (req, res, next) => {
+    res.status(200).render("products/seller/new");
+};
