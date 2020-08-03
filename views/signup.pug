@@ -1,7 +1,7 @@
 extends base
 
 block links
-    link(rel="stylesheet", href="/css/signup.css")
+    link(rel='stylesheet' href='/css/signup.css')
 
 block content
     main
@@ -11,8 +11,8 @@ block content
             input#password(type='password' placeholder='enter password' required minlength='8')
             input#password-confirm(type='password' placeholder='confirm password' required minlength='8')
             .role
-                input#role(type="checkbox")
+                input#role(type='checkbox')
                 label Do you want to sell?
-            input(type="submit", value="Signup")
+            input(type='submit' value='Signup')
 
     script(src='/js/signup.js')

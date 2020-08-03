@@ -30,8 +30,9 @@ form.addEventListener("submit", async e => {
         });
         if (res.data.status === "success") {
             alert("successfully created");
-            location.assign("/");
+            return location.assign("/");
         }
+        alert("OOps something went wrong...");
     } catch (err) {
         alert(err.response.data.message);
     }

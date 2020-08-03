@@ -21,8 +21,9 @@ form.addEventListener("submit", async e => {
             //     .querySelector("nav")
             //     .insertAdjacentHTML("afterend", markUp);
             alert("Logged in successfully");
-            location.assign("/");
+            return location.assign("/");
         }
+        alert("OOps something went wrong...");
     } catch (e) {
         alert(e.response.data.message);
         // const markUp = `<div>${e}</div>`;

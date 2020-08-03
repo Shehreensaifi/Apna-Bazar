@@ -1,14 +1,14 @@
 extends ../base
 
 block links
-    link(rel="stylesheet", href="/css/home.css")
+    link(rel='stylesheet' href='/css/home.css')
 
 
 block content
     .container
         each product in products
             form.item(action=`/${product._id}` method='GET')
-                img(src=`${product.image}`, alt="")
+                img(src=`${product.image}`, alt='')
                 .details
                     .item-name= `${product.name}`
                     .item-price $#{product.price}

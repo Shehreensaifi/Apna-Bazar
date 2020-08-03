@@ -16,7 +16,7 @@ logoutBtn.addEventListener("click", async e => {
             url: "/api/v1/users/logout"
         });
         if (res.data.status === "success") {
-            window.location.reload();
+            location.assign("/");
         }
     } catch (err) {
         console.log(err);

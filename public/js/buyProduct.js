@@ -1,22 +1,23 @@
-/*eslint-disable */
+/*eslint-disable*/
 const form = document.querySelector(".container");
 
 form.addEventListener("submit", async e => {
     e.preventDefault();
-    const formData = new FormData(form);
-    console.log(formData);
     try {
+        const id = form.dataset.id;
         const res = await axios({
-            url: "/api/v1/products",
             method: "POST",
-            data: formData
+            url: "/api/v1/orders",
+            data: {
+                product: id
+            }
         });
         if (res.data.status === "success") {
-            alert("Successfully created!");
-            return location.assign("/products");
+            alert("Successfully placed your order!");
+            return location.assign("/orders");
         }
         alert("OOps something went wrong...");
     } catch (err) {
-        alert(err.response.data);
+        alert(err.response.data.message);
     }
 });

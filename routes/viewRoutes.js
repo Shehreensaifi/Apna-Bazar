@@ -6,6 +6,7 @@ const router = express.Router();
 
 router.get("/", authController.isLoggedIn, viewsController.getHomePage);
 
+//Seller's all products page
 router.get(
     "/products",
     authController.protect,
@@ -23,9 +24,11 @@ router.get("/orders", authController.protect, viewsController.getOrders);
 
 router.get("/login", authController.isLoggedIn, viewsController.login);
 router.get("/signup", authController.isLoggedIn, viewsController.signup);
+//Get detail/cart page
 router.get(
     "/:id",
-    authController.isLoggedIn,
+    authController.protect,
+    authController.restrictTo("user"),
     viewsController.getProductDetails
 );
 

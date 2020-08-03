@@ -1,7 +1,7 @@
 extends ../base
 
 block links
-    link(rel="stylesheet", href="/css/product.css")
+    link(rel='stylesheet' href='/css/product.css')
 
 block content
     main
@@ -10,3 +10,5 @@ block content
             .details
                 h2= product.name
                 input#submit(type="submit", value=`₹${product.price} Buy`)
+
+    script(src='/js/buyProduct.js')

@@ -40,6 +40,15 @@ app.use(xss());
 // compress all responses
 app.use(compression());
 
+// caching disabled for every route
+app.use((req, res, next) => {
+    res.set(
+        "Cache-Control",
+        "no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0"
+    );
+    next();
+});
+
 app.use("/", viewRouter);
 app.use("/api/v1/products", productRouter);
 app.use("/api/v1/users", userRouter);

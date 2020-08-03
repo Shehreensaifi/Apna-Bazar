@@ -4,6 +4,9 @@ const catchAsync = require("../utils/catchAsync");
 const AppError = require("../utils/appError");
 
 exports.getHomePage = catchAsync(async (req, res, next) => {
+    if (req.user && req.user.role === "seller")
+        return res.redirect("/products");
+
     const products = await Product.find();
     res.status(200).render("products/index", { products });
 });

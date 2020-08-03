@@ -5,7 +5,7 @@ html
         meta(name='viewport' content='width=device-width' initial-scale=1.0)
         //- <script src="https://kit.fontawesome.com/b391407817.js" crossorigin="anonymous"></script>
 
-        link(rel="stylesheet", href="/css/style.css")
+        link(rel='stylesheet' href='/css/style.css')
         block links
 
         title Apna Bazar
@@ -19,8 +19,6 @@ html
                         if user.role==='seller'
                             li
                                 a(href='/products/new') add product
-                            li
-                                a(href='/products') my products
                         li
                             a(href='/orders') orders
                         li
@@ -41,4 +39,4 @@ html
         block content
 
         script(src='https://unpkg.com/axios/dist/axios.min.js')
-        script(src="/js/home.js")
+        script(src='/js/home.js')
