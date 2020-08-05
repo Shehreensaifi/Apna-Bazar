@@ -15,7 +15,8 @@ block content
                     img(src=`${order.product.image}`, alt=`${order.product.name}`)
                     .detail
                         h3=order.product.name
-                        button More
+                        button
+                            a(href=`/orders/${order._id}`) More
                     h2.price= `₹${order.product.price}`
             -});
             

@@ -1,5 +1,6 @@
 const axios = require("axios");
 const Product = require("../models/productModel");
+const Order = require("../models/orderModel");
 const catchAsync = require("../utils/catchAsync");
 const AppError = require("../utils/appError");
 
@@ -61,6 +62,25 @@ exports.getOrders = catchAsync(async (req, res, next) => {
     return next(
         new AppError("Something went wrong. Please try again later", 500)
     );
+});
+
+exports.getOrderDetails = catchAsync(async (req, res, next) => {
+    let order;
+    if (req.user.role === "user")
+        order = await Order.findOne({
+            _id: req.params.id,
+            user: req.user._id,
+            status: { $nin: ["removed"] }
+        });
+    else if (req.user.role === "seller")
+        order = await Order.findOne({
+            _id: req.params.id,
+            "product.seller": req.user._id
+        });
+
+    if (!order) return next(new AppError("Not Found", 404));
+
+    res.status(200).render("orders/show", { order });
 });
 
 //Seller's all products page

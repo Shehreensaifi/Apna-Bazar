@@ -1,0 +1,24 @@
+extends ../base
+
+block links
+    link(rel="stylesheet", href="/css/orderDetails.css")
+
+block content
+    main
+        .item(data-id=`${order._id}` data-user-role=`${user.role}`)
+            .status
+                h4=order.status
+            img(src=`${order.product.image}`, alt=`${order.product.name}`)
+            .detail
+                .sub-detail-1
+                    h3=order.product.name
+                    h3.price= `₹${order.product.price}`
+                .sub-detail-2
+                    button#cancel-button Cancel
+                    if user.role===user
+                        button#remove-button Remove
+                    else
+                        button#confirm-button Confirm
+                        button#deliver-button Delivered
+
+    script(src="/js/orderDetails.js")

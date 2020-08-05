@@ -21,9 +21,15 @@ router.get(
 );
 
 router.get("/orders", authController.protect, viewsController.getOrders);
+router.get(
+    "/orders/:id",
+    authController.protect,
+    viewsController.getOrderDetails
+);
 
 router.get("/login", authController.isLoggedIn, viewsController.login);
 router.get("/signup", authController.isLoggedIn, viewsController.signup);
+
 //Get detail/cart page
 router.get(
     "/:id",
