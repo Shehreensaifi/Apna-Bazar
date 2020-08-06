@@ -19,6 +19,12 @@ router.get(
     authController.restrictTo("seller"),
     viewsController.getNewProductPage
 );
+router.get(
+    "/products/:id/edit",
+    authController.protect,
+    authController.restrictTo("seller"),
+    viewsController.getEditProductPage
+);
 
 router.get("/orders", authController.protect, viewsController.getOrders);
 router.get(

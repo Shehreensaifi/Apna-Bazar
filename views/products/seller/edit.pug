@@ -1,0 +1,15 @@
+extends ../../base
+
+block links
+    link(rel='stylesheet', href='/css/editProduct.css')
+
+block content
+    main
+        form.container(data-id=`${product._id}`)
+            input#name(type='text' placeholder='enter name' name='name' value=`${product.name}` required)
+            input#price(type='number' placeholder='enter price' name='price' min="1" value=`${product.price}` required)
+            input#image(type='file' accept='image/*' name='image')
+            
+            input(type='submit', value='Submit')
+
+    script(src='/js/editProduct.js')

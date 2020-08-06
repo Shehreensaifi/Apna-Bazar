@@ -40,6 +40,10 @@ img {
     align-self: center;
 }
 
+button > a {
+    text-decoration: none;
+}
+
 @media only screen and (max-width: 50rem) {
     .container {
         grid-template-columns: repeat(2, 40%);

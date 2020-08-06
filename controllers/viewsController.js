@@ -95,3 +95,12 @@ exports.getAllProductsPage = catchAsync(async (req, res, next) => {
 exports.getNewProductPage = (req, res, next) => {
     res.status(200).render("products/seller/new");
 };
+
+exports.getEditProductPage = catchAsync(async (req, res, next) => {
+    const product = await Product.findById(req.params.id);
+    if (!product) {
+        return next(new AppError("No document found with this ID", 404));
+    }
+
+    res.status(200).render("products/seller/edit", { product });
+});
