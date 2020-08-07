@@ -12,8 +12,7 @@ block content
                 .item
                     img(src=`${product.image}`, alt=`${product.name}`)
                     .detail
-                        h3=product.name
-                        button
-                            a(href=`/products/${product._id}/edit`) Edit
-                    h2.price= `₹${product.price}`
+                        div=product.name
+                        a(href=`/products/${product._id}/edit`) Edit
+                    div.price= `₹ ${product.price}`
             -});

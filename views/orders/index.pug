@@ -14,10 +14,10 @@ block content
                         h4=order.status
                     img(src=`${order.product.image}`, alt=`${order.product.name}`)
                     .detail
-                        h3=order.product.name
-                        button
-                            a(href=`/orders/${order._id}`) More
-                    h2.price= `₹${order.product.price}`
+                        div=order.product.name
+                        a(href=`/orders/${order._id}`) More
+                    div.price= `₹ ${order.product.price}`
             -});
+    script(src='/js/orders.js')
             
 

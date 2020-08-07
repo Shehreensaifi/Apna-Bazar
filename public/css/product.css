@@ -1,6 +1,5 @@
 main {
-    width: 100%;
-    padding: 1rem;
+    padding: 1rem 0;
     text-align: center;
 }
 .container {
@@ -15,9 +14,10 @@ main {
 .container > img {
     border-radius: 1rem;
     height: 50vh;
+    width: 50vh;
+    max-width: 80vw;
 }
 .details {
-    width: 50vh;
     align-self: center;
     display: flex;
     flex-direction: column;
@@ -26,10 +26,10 @@ main {
 
 .details > h2 {
     color: white;
+    margin-bottom: 0;
 }
 
 #submit {
-    width: 100%;
     margin-top: 0.5rem;
     background-color: rgb(112, 111, 110);
     border-style: none;

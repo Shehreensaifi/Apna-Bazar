@@ -78,7 +78,7 @@ body {
     width: 100%;
     background-color: white;
 }
-/* Main */
+
 @media (max-width: 50rem) {
     .toggle-button {
         display: flex;

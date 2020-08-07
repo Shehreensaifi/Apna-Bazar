@@ -5,7 +5,7 @@ main {
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
-    margin: 4rem;
+    margin: 4rem auto;
     border: 2px double rgb(211, 210, 210);
     border-radius: 1rem;
     padding: 1rem;

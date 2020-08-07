@@ -4,11 +4,25 @@
 .title {
     padding: 1rem;
     display: inline-block;
-    background-color: violet;
+    background: #232526; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to left,
+        #414345,
+        #232526
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to left,
+        #414345,
+        #232526
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+
     text-align: center;
     border-radius: 1rem;
 }
 .price {
+    color: white;
+
     text-align: center;
     padding: 0;
     margin: 0;
@@ -21,7 +35,7 @@
     gap: 2rem;
 }
 .item {
-    border: violet 2px double;
+    border: 2px double rgb(211, 210, 210);
     padding: 1rem;
     position: relative;
 }
@@ -32,16 +46,35 @@ img {
 }
 
 .detail {
+    margin-top: 1rem;
+    color: white;
     padding: 5px;
     display: flex;
     justify-content: space-between;
 }
+.detail,
+.detail + div {
+    font-size: 1.2rem;
+}
 .detail > * {
     align-self: center;
 }
-
-button > a {
+.detail > a {
     text-decoration: none;
+    color: white;
+    padding: 0.1rem 0.4rem;
+    background: #757f9a; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to bottom right,
+        #d7dde8,
+        #757f9a
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to bottom right,
+        #d7dde8,
+        #757f9a
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 15%;
 }
 
 @media only screen and (max-width: 50rem) {

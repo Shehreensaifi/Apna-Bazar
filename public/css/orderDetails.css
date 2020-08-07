@@ -1,9 +1,9 @@
 .item {
-    border: violet 3px double;
+    border: 2px double rgb(211, 210, 210);
     padding: 1rem;
     position: relative;
     border-radius: 1rem;
-    width: 50vh;
+    width: 70vh;
     max-width: 80vw;
     margin: 1rem auto;
 }
@@ -17,7 +17,19 @@ img {
     position: absolute;
     top: -1rem;
     right: -1rem;
-    background-color: goldenrod;
+    background: #757f9a; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to top,
+        #d7dde8,
+        #757f9a
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to top,
+        #d7dde8,
+        #757f9a
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+
     border-radius: 50%;
     padding: 1rem;
     transform: rotate(-25deg);
@@ -25,9 +37,11 @@ img {
 .details {
     padding: 5px;
 }
+
 .sub-detail-1,
 .sub-detail-2 {
-    color: wheat;
+    font-size: 1.2rem;
+    color: white;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;

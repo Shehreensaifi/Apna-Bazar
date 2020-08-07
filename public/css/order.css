@@ -4,13 +4,25 @@
 .title {
     padding: 1rem;
     display: inline-block;
-    background-color: violet;
+    background: #232526; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to left,
+        #414345,
+        #232526
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to left,
+        #414345,
+        #232526
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    color: white;
     text-align: center;
     border-radius: 1rem;
 }
 .price {
     text-align: center;
-    color: wheat;
+    color: white;
     padding: 0;
     margin: 0;
 }
@@ -22,7 +34,7 @@
     gap: 2rem;
 }
 .item {
-    border: violet 2px double;
+    border: 2px double rgb(211, 210, 210);
     padding: 1rem;
     position: relative;
 }
@@ -35,22 +47,52 @@ img {
     position: absolute;
     top: -1rem;
     right: -1rem;
-    background-color: goldenrod;
+    background: #757f9a; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to top,
+        #d7dde8,
+        #757f9a
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to top,
+        #d7dde8,
+        #757f9a
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    color: white;
     border-radius: 50%;
     padding: 1rem;
     transform: rotate(-25deg);
 }
 .detail {
-    padding: 5px;
+    margin-top: 1rem;
     display: flex;
     justify-content: space-between;
 }
+.detail,
+.detail + div {
+    font-size: 1.2rem;
+}
 .detail > * {
     align-self: center;
-    color: wheat;
+    color: white;
 }
-.detail > button > a {
+.detail > a {
     text-decoration: none;
+    color: white;
+    padding: 0.1rem 0.3rem;
+    background: #757f9a; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to bottom right,
+        #d7dde8,
+        #757f9a
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to bottom right,
+        #d7dde8,
+        #757f9a
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 15%;
 }
 
 @media only screen and (max-width: 50rem) {
