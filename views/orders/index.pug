@@ -16,7 +16,7 @@ block content
                     .detail
                         div=order.product.name
                         a(href=`/orders/${order._id}`) More
-                    div.price= `₹ ${order.product.price}`
+                    div.price= `₹${order.product.price}`
             -});
     script(src='/js/orders.js')
             

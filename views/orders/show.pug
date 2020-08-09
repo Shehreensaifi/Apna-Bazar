@@ -12,10 +12,10 @@ block content
             .detail
                 .sub-detail-1
                     div=order.product.name
-                    div.price= `₹ ${order.product.price}`
+                    div.price= `₹${order.product.price}`
                 .sub-detail-2
                     button#cancel-button Cancel
-                    if user.role===user
+                    if user.role==='user'
                         button#remove-button Remove
                     else
                         button#confirm-button Confirm

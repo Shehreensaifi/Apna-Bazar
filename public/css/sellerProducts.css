@@ -46,20 +46,23 @@ img {
 }
 
 .detail {
-    margin-top: 1rem;
+    margin-top: 0.2rem;
     color: white;
     padding: 5px;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .detail,
 .detail + div {
     font-size: 1.2rem;
 }
 .detail > * {
+    margin: 0.3rem auto 0 auto;
     align-self: center;
 }
-.detail > a {
+.detail > a,
+.button-remove {
     text-decoration: none;
     color: white;
     padding: 0.1rem 0.4rem;
@@ -75,6 +78,11 @@ img {
         #757f9a
     ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     border-radius: 15%;
+}
+.button-remove {
+    border: none;
+    font-size: 1rem;
+    /* border-radius: 25%; */
 }
 
 @media only screen and (max-width: 50rem) {

@@ -11,8 +11,11 @@ block content
             -products.forEach(product=>{
                 .item
                     img(src=`${product.image}`, alt=`${product.name}`)
+                    div.price= `₹${product.price}`
                     .detail
-                        div=product.name
                         a(href=`/products/${product._id}/edit`) Edit
-                    div.price= `₹ ${product.price}`
+                        button.button-remove(data-id=`${product._id}`) Remove
+                        div=product.name
             -});
+
+    script(src='/js/sellerProducts.js')
