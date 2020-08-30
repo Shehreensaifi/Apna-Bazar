@@ -6,9 +6,8 @@ block links
 block content
     main
         .item(data-id=`${order._id}` data-user-role=`${user.role}`)
-            .status
-                h4=order.status
             img(src=`${order.product.image}`, alt=`${order.product.name}`)
+            .status=order.status
             .detail
                 .sub-detail-1
                     div=order.product.name

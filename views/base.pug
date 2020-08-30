@@ -3,31 +3,32 @@ html
     head
         meta(charset='UTF-8')
         meta(name='viewport' content='width=device-width' initial-scale=1.0)
-        //- <script src="https://kit.fontawesome.com/b391407817.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/b391407817.js" crossorigin="anonymous"></script>
+        link( href='https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap' rel='stylesheet')
 
         link(rel='stylesheet' href='/css/style.css')
         block links
 
         title Apna Bazar
     body
-
-        nav.navbar
-            a.brand-title(href="/") Apna Bazar
-            .navbar-links
-                ul
-                    if user
-                        if user.role==='seller'
+        header
+            nav.navbar
+                a.brand-title(href="/") Apna Bazar
+                .navbar-links
+                    ul
+                        if user
+                            if user.role==='seller'
+                                li
+                                    a(href='/products/new') add product
                             li
-                                a(href='/products/new') add product
-                        li
-                            a(href='/orders') orders
-                        li
-                            a#logoutOption(href='#') logout
-                    else
-                        li
-                            a(href='/login') login 
-                        li
-                            a(href='signup') signup
+                                a(href='/orders') orders
+                            li
+                                a#logoutOption(href='#') logout
+                        else
+                            li
+                                a(href='/login') login 
+                            li
+                                a(href='signup') signup
 
 
 

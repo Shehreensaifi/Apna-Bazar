@@ -4,40 +4,18 @@
 body {
     margin: 0;
     padding: 0;
-
-    background: #283048; /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-        to right,
-        #859398,
-        #283048
-    ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(
-        to right,
-        #859398,
-        #283048
-    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: "Roboto", sans-serif;
+}
+header {
+    background-color: rgb(44, 44, 43);
 }
 .navbar {
     padding: 0 1rem;
-    /* position: fixed;
-    width: 100%;
-    top: 0; */
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #232526; /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-        to right,
-        #414345,
-        #232526
-    ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(
-        to right,
-        #414345,
-        #232526
-    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-    color: white;
 }
 .brand-title {
     text-decoration: none;

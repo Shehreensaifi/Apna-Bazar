@@ -9,15 +9,12 @@ block content
     main
         .container
             -orders.forEach(order=>{
-                .item
-                    .status
-                        h4=order.status
+                a.item(href=`/orders/${order._id}`)
                     img(src=`${order.product.image}`, alt=`${order.product.name}`)
-                    .detail
-                        div=order.product.name
-                        a(href=`/orders/${order._id}`) More
+                    div.product-name=order.product.name
                     div.price= `₹${order.product.price}`
+                    div.status=order.status
+                    .button-more(href=`/orders/${order._id}`) More
             -});
-    script(src='/js/orders.js')
             
 

@@ -49,6 +49,8 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get("/favicon.ico", (req, res) => res.sendStatus(204));
+
 app.use("/", viewRouter);
 app.use("/api/v1/products", productRouter);
 app.use("/api/v1/users", userRouter);

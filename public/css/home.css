@@ -1,13 +1,14 @@
 .container {
     display: grid;
     padding: 1rem;
-    grid-template-columns: repeat(3, 30%);
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 350px));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
     justify-content: center;
 }
 .item {
-    border: 2px double rgb(211, 210, 210);
-    border-radius: 1rem;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
     padding: 1rem;
 }
 .item > img {
@@ -16,37 +17,21 @@
 }
 .details {
     margin-top: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 1rem;
-    color: white;
 }
 .button-more {
     width: 100%;
     margin-top: 0.5rem;
-    background-color: rgb(112, 111, 110);
+    background-color: rgb(102, 100, 100);
     border-style: none;
     color: white;
-    padding: 0.8rem 1rem;
+    padding: 0.7rem 0;
     border-radius: 1rem;
 }
 .button-more:hover {
-    background-color: rgb(87, 86, 85);
-    transform: scale(1.1);
-}
-
-@media (max-width: 50rem) {
-    .container {
-        grid-template-columns: repeat(2, 45%);
-    }
-}
-@media (max-width: 40rem) {
-    .container {
-        grid-template-columns: 80%;
-    }
-    .item {
-        max-width: 30rem;
-    }
+    opacity: 0.8;
 }

@@ -7,13 +7,11 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px double rgb(211, 210, 210);
-    border-radius: 1rem;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
     padding: 1rem;
 }
 .container > img {
     border-radius: 1rem;
-    height: 50vh;
     width: 50vh;
     max-width: 80vw;
 }
@@ -24,19 +22,19 @@ main {
     justify-content: space-between;
 }
 
-.details > h2 {
-    color: white;
-    margin-bottom: 0;
+.details > div {
+    font-weight: bold;
+    margin-top: 10px;
 }
 
 #submit {
     margin-top: 0.5rem;
-    background-color: rgb(112, 111, 110);
+    background-color: rgb(102, 100, 100);
     border-style: none;
     color: white;
     padding: 0.8rem 1rem;
     border-radius: 1rem;
 }
 #submit:hover {
-    background-color: rgb(87, 86, 85);
+    opacity: 0.8;
 }

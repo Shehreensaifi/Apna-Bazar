@@ -9,16 +9,18 @@ toggleButton.addEventListener("click", () => {
     navbarLinks.classList.toggle("active");
 });
 
-logoutBtn.addEventListener("click", async e => {
-    try {
-        const res = await axios({
-            method: "GET",
-            url: "/api/v1/users/logout"
-        });
-        if (res.data.status === "success") {
-            location.assign("/");
+if (logoutBtn) {
+    logoutBtn.addEventListener("click", async e => {
+        try {
+            const res = await axios({
+                method: "GET",
+                url: "/api/v1/users/logout"
+            });
+            if (res.data.status === "success") {
+                location.assign("/");
+            }
+        } catch (err) {
+            console.log(err);
         }
-    } catch (err) {
-        console.log(err);
-    }
-});
+    });
+}
