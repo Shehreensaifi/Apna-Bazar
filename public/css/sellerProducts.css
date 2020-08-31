@@ -1,5 +1,6 @@
 #title-wrapper {
     text-align: center;
+    margin-top: 3rem;
 }
 .title {
     display: inline-block;
@@ -49,7 +50,7 @@ img {
     padding: 0.4rem 0.7rem;
     font-size: 0.9rem;
     margin-right: 10px;
-    border-radius: 0.3rem;
+    border-radius: 0.25rem;
 }
 .button-edit:hover,
 .button-remove:hover {

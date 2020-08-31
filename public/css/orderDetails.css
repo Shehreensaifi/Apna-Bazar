@@ -4,7 +4,7 @@
     border-radius: 1rem;
     width: 70vh;
     max-width: 80vw;
-    margin: 1rem auto;
+    margin: 4rem auto;
 }
 
 img {
@@ -42,7 +42,7 @@ img {
 }
 
 button {
-    border-radius: 0.3rem;
+    border-radius: 0.25rem;
     margin: 2px auto;
     padding: 0.6rem 0.8rem;
     border: none;

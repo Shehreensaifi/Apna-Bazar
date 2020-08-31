@@ -5,7 +5,7 @@ main {
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
-    margin: 4rem auto;
+    margin: 5rem auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 1rem;
     padding: 1rem;
@@ -19,7 +19,7 @@ input[type="submit"] {
     border-style: none;
     color: white;
     padding: 0.5rem 1rem;
-    border-radius: 1rem;
+    border-radius: 0.25rem;
 }
 input[type="submit"]:hover {
     opacity: 0.8;

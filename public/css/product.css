@@ -33,7 +33,7 @@ main {
     border-style: none;
     color: white;
     padding: 0.8rem 1rem;
-    border-radius: 1rem;
+    border-radius: 0.3rem;
 }
 #submit:hover {
     opacity: 0.8;

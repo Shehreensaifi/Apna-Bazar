@@ -4,6 +4,7 @@ main > h2 {
     background-color: rgb(44, 44, 43);
     color: white;
     padding: 2rem;
-    margin: 2rem;
-    border-radius: 0.6rem;
+    margin: 5rem 1rem;
+    letter-spacing: 0.04rem;
+    border-radius: 0.3rem;
 }

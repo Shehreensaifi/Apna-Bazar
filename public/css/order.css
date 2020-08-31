@@ -1,5 +1,6 @@
 #title-wrapper {
     text-align: center;
+    margin-top: 3rem;
 }
 .title {
     padding: 1rem;
@@ -50,7 +51,7 @@ img {
     color: white;
     text-decoration: none;
     padding: 0.4rem 1rem;
-    border-radius: 0.3rem;
+    border-radius: 0.25rem;
 }
 .button-more:hover {
     opacity: 0.8;

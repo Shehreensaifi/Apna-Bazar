@@ -8,6 +8,11 @@ body {
 }
 header {
     background-color: rgb(44, 44, 43);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
 }
 .navbar {
     padding: 0 1rem;
@@ -16,6 +21,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .brand-title {
     text-decoration: none;
