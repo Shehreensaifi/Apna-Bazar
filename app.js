@@ -12,6 +12,7 @@ const productRouter = require("./routes/productRoutes");
 const userRouter = require("./routes/userRoutes");
 const orderRouter = require("./routes/orderRoutes");
 const viewRouter = require("./routes/viewRoutes");
+const deliveryDetailRouter = require("./routes/deliveryDetailRoutes");
 
 const globalErrorHandler = require("./controllers/errorController");
 
@@ -52,6 +53,7 @@ app.use((req, res, next) => {
 app.get("/favicon.ico", (req, res) => res.sendStatus(204));
 
 app.use("/", viewRouter);
+app.use("/api/v1/address", deliveryDetailRouter);
 app.use("/api/v1/products", productRouter);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/orders", orderRouter);

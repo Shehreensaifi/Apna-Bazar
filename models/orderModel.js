@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const productSchema = require("./productModel").schema;
+const deliveryDetailSchema = require("./deliveryDetailModel").schema;
 
 const orderSchema = new mongoose.Schema({
     user: {
@@ -10,6 +11,20 @@ const orderSchema = new mongoose.Schema({
     product: {
         type: productSchema,
         required: [true, "An order must belong to a product"]
+    },
+    address: {
+        type: deliveryDetailSchema,
+        required: [true, "An order must have an address"]
+    },
+    quantity: {
+        type: Number,
+        default: 1
+    },
+    totalPrice: {
+        type: Number,
+        default: function() {
+            return this.product.price * this.quantity;
+        }
     },
     createdAt: {
         type: Date,

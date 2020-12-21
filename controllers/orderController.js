@@ -2,6 +2,7 @@ const catchAsync = require("../utils/catchAsync");
 
 const Order = require("../models/orderModel");
 const Product = require("../models/productModel");
+const DeliveryDetail = require("../models/deliveryDetailModel");
 const AppError = require("../utils/appError");
 
 ///////////////////////////////////////////////////////////
@@ -27,9 +28,24 @@ exports.createOrder = catchAsync(async (req, res, next) => {
     if (!product) {
         return next(new AppError("No document belong to this ID", 404));
     }
+
+    const address = await DeliveryDetail.findById(req.body.address);
+    if (!address) {
+        return next(new AppError("No document belong to this ID", 404));
+    }
+
+    //match user id inside address with current user
+    const userId = address.user;
+    console.log(userId);
+    // if(userId!==)
+    return res.status(201).json({
+        hi: "hiaflskdfj"
+    });
+
     const order = await Order.create({
         user: req.user._id,
-        product
+        product,
+        quantity: req.body.quantity
     });
     res.status(201).json({
         status: "success",
