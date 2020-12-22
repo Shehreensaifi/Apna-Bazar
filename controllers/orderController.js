@@ -34,19 +34,20 @@ exports.createOrder = catchAsync(async (req, res, next) => {
         return next(new AppError("No document belong to this ID", 404));
     }
 
-    //match user id inside address with current user
-    const userId = address.user;
-    console.log(userId);
-    // if(userId!==)
-    return res.status(201).json({
-        hi: "hiaflskdfj"
-    });
+    //User can use only thier own address
+    const userId = String(address.user);
+    if (userId !== req.user.id)
+        return next(
+            new AppError("You don't have permission to perform this task!", 403)
+        );
 
     const order = await Order.create({
         user: req.user._id,
         product,
+        address,
         quantity: req.body.quantity
     });
+
     res.status(201).json({
         status: "success",
         data: {
