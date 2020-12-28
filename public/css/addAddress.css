@@ -1,0 +1,27 @@
+main {
+    text-align: center;
+}
+.container {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20vh auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1rem;
+    padding: 1rem;
+}
+.container > * {
+    margin-top: 1rem;
+    align-self: center;
+}
+input[type="submit"] {
+    margin-top: 0.5rem;
+    background-color: rgb(112, 111, 110);
+    border-style: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+}
+input[type="submit"]:hover {
+    opacity: 0.8;
+}

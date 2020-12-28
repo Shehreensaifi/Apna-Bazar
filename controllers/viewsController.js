@@ -3,6 +3,7 @@ const Product = require("../models/productModel");
 const Order = require("../models/orderModel");
 const catchAsync = require("../utils/catchAsync");
 const AppError = require("../utils/appError");
+const DeliveryDetail = require("../models/deliveryDetailModel");
 
 exports.getHomePage = catchAsync(async (req, res, next) => {
     if (req.user && req.user.role === "seller")
@@ -103,4 +104,43 @@ exports.getEditProductPage = catchAsync(async (req, res, next) => {
     }
 
     res.status(200).render("products/seller/edit", { product });
+});
+
+//User address
+exports.getAllAddresses = catchAsync(async (req, res, next) => {
+    const addresses = await DeliveryDetail.find({
+        user: req.user._id
+    });
+
+    res.status(200).render("addresses/index", { addresses });
+});
+
+exports.getNewAddressPage = (req, res) => {
+    res.status(200).render("addresses/new");
+};
+
+exports.getEditAddressPage = catchAsync(async (req, res, next) => {
+    const address = await DeliveryDetail.findOne({
+        user: req.user._id,
+        _id: req.params.id
+    });
+
+    if (!address) return next(new AppError("No Address Found!", 404));
+
+    res.status(200).render("addresses/edit", { address });
+});
+
+exports.getCheckoutPage = catchAsync(async (req, res, next) => {
+    const address = await DeliveryDetail.findOne({
+        user: req.user._id,
+        _id: req.params.id
+    });
+
+    if (!address) return next(new AppError("No Address Found!", 404));
+
+    const product = await Product.findById(req.params.productId);
+
+    if (!product) return next(new AppError("No Product Found!", 404));
+
+    res.status(200).render("checkout", { address, product });
 });

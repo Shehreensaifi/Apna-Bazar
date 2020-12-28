@@ -1,0 +1,13 @@
+extend ../base
+
+block links
+    link(rel="stylesheet", href="/css/editAddress.css")
+
+block content
+    main
+        form(data-id=`${address._id}`).container
+            input(type='text' ,placeholder='Enter your address',value=`${address.address}` required)
+            input(type='number',placeholder='mobile number',value=`${address.phone}` required)
+            input(type='submit',value='save')
+
+    script(src='/js/editAddress.js')

@@ -1,0 +1,17 @@
+extends ../base
+
+block links
+    link(rel='stylesheet' href='/css/allAddress.css')
+
+block content
+    .container
+        a(href=`address/new`)#add-btn Add New 
+        each address in addresses
+            .card
+                p=`${address.address}`
+                p=`${address.phone}`
+                a#edit-btn(href=`address/${address._id}/edit`) Edit
+                button.remove(data-id=`${address._id}`) Remove
+                a#use-this-address-btn(href=`address/${address._id}/checkout`) Use this address
+block scripts
+    script(src='/js/address.js')

@@ -36,7 +36,34 @@ router.get(
 router.get("/login", authController.isLoggedIn, viewsController.login);
 router.get("/signup", authController.isLoggedIn, viewsController.signup);
 
-//Get detail/cart page
+// Address
+router.get(
+    "/:productId/address",
+    authController.protect,
+    authController.restrictTo("user"),
+    viewsController.getAllAddresses
+);
+router.get(
+    "/:productId/address/new",
+    authController.protect,
+    authController.restrictTo("user"),
+    viewsController.getNewAddressPage
+);
+router.get(
+    "/:productId/address/:id/edit",
+    authController.protect,
+    authController.restrictTo("user"),
+    viewsController.getEditAddressPage
+);
+
+router.get(
+    "/:productId/address/:id/checkout",
+    authController.protect,
+    authController.restrictTo("user"),
+    viewsController.getCheckoutPage
+);
+
+//Get Product detail
 router.get(
     "/:id",
     authController.protect,

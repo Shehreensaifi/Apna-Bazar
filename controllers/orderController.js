@@ -41,7 +41,7 @@ exports.createOrder = catchAsync(async (req, res, next) => {
         user: req.user._id,
         product,
         address,
-        quantity: req.body.quantity
+        quantity: req.body.quantity ? req.body.quantity : 1
     });
 
     res.status(201).json({

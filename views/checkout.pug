@@ -1,0 +1,25 @@
+extends base
+
+block links
+    link(rel="stylesheet", href="/css/checkout.css")
+
+block content
+    main
+        form(data-product-id=product._id,data-address-id=address._id).container
+            img(src=`${product.image}`, alt='Product image')
+            .details
+                div#product-name=`${product.name}`
+                div#price(data-price=`${product.price}`)= `₹${product.price}`
+                select(name='quantity',id='quantity')
+                    option(value='1') 1
+                    option(value='2') 2
+                    option(value='3') 3
+                    option(value='4') 4
+                    option(value='5') 5
+                div#total-price       
+                    strong Total: 
+                    span#totalPrice=`₹${product.price}`
+                    
+            input#submit(type='submit',value='Place your order')
+
+    script(src='/js/checkout.js')

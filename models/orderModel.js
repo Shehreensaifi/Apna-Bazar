@@ -18,7 +18,8 @@ const orderSchema = new mongoose.Schema({
     },
     quantity: {
         type: Number,
-        default: 1
+        min: 1,
+        required: [true, "An order item must have a quantity"]
     },
     totalPrice: {
         type: Number,

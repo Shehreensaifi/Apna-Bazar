@@ -5,10 +5,8 @@ block links
 
 block content
     main
-        form.container(data-id=product._id)
+        .container
             img(src=product.image)
             .details
                 div= product.name
-                input#submit(type="submit", value=`₹${product.price} Buy`)
-
-    script(src='/js/buyProduct.js')
+                a#submit(href=`/${product._id}/address`)= `₹${product.price} Buy`
