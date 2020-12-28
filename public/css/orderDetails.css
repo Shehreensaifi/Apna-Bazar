@@ -1,21 +1,26 @@
+.item,
+.extra-details {
+    width: 70vh;
+    max-width: 80vw;
+    text-transform: capitalize;
+}
+.extra-details {
+    margin: 4rem auto 1rem;
+    /* font-size: 1.2rem; */
+}
+.status {
+    font-weight: bold;
+}
 .item {
     box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
     padding: 1rem;
     border-radius: 1rem;
-    width: 70vh;
-    max-width: 80vw;
-    margin: 4rem auto;
+    margin: auto;
 }
 
 img {
     width: 100%;
     border-radius: 1rem;
-}
-.status {
-    font-size: 1.2rem;
-    margin: 0;
-    text-transform: capitalize;
-    margin: 5px 0;
 }
 .sub-detail-1,
 .sub-detail-2 {

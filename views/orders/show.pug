@@ -5,9 +5,14 @@ block links
 
 block content
     main
+        .extra-details
+            .status=`status: ${order.status}`
+            div=`Quantity: ${order.quantity}`
+            div=`Total: ₹${order.totalPrice}`
+            div=`Address: ${order.address.address}`
+            div=`Phone: ${order.address.phone}`
         .item(data-id=`${order._id}` data-user-role=`${user.role}`)
             img(src=`${order.product.image}`, alt=`${order.product.name}`)
-            .status=order.status
             .detail
                 .sub-detail-1
                     div=order.product.name

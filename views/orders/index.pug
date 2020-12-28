@@ -12,7 +12,7 @@ block content
                 a.item(href=`/orders/${order._id}`)
                     img(src=`${order.product.image}`, alt=`${order.product.name}`)
                     div.product-name=order.product.name
-                    div.price= `₹${order.product.price}`
+                    div.price= `₹${order.totalPrice}`
                     div.status=order.status
                     .button-more(href=`/orders/${order._id}`) More
             -});
