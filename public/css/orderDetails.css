@@ -5,8 +5,7 @@
     text-transform: capitalize;
 }
 .extra-details {
-    margin: 4rem auto 1rem;
-    /* font-size: 1.2rem; */
+    margin: 1rem auto;
 }
 .status {
     font-weight: bold;

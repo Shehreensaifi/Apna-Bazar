@@ -6,10 +6,12 @@ block links
 block content
     main
         form.container
-            input#name(type='text' placeholder='enter name' required)
-            input#email(type='email' placeholder='enter email' required)
-            input#password(type='password' placeholder='enter password' required minlength='8')
-            input#password-confirm(type='password' placeholder='confirm password' required minlength='8')
+            .heading Sign Up
+            hr
+            input#name(type='text' placeholder='Name' required)
+            input#email(type='email' placeholder='Email' required)
+            input#password(type='password' placeholder='Password' required minlength='8')
+            input#password-confirm(type='password' placeholder='Confirm Password' required minlength='8')
             .role
                 input#role(type='checkbox')
                 label Do you want to sell?
