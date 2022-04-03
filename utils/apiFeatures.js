@@ -4,11 +4,13 @@ class APIFeatures {
         this.queryString = queryString;
     }
 
-    filter() {
+    filter(moreFields) {
         //Copying query object
         const queryObj = { ...this.queryString };
         //Removing given fields from queryObj
-        const excludeFields = ["page", "sort", "limit", "fields"];
+        const excludeFields = ["page", "sort", "limit", "fields"].concat(
+            moreFields
+        );
         excludeFields.forEach(el => delete queryObj[el]);
 
         //Adding $ before gte,gt,lte and lt if exists
