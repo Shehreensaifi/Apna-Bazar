@@ -7,11 +7,11 @@ const shopSchema = new mongoose.Schema({
     //     type: String,
     //     required: [true, "ImageId required"]
     // },
-    // seller: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: "User",
-    //     required: [true, "Shop must belong to a seller"]
-    // },
+    seller: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required: [true, "Shop must belong to a seller"]
+    },
     location: {
         type: {
             type: String,

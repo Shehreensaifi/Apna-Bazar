@@ -44,10 +44,20 @@ exports.createShop = catchAsync(async (req, res, next) => {
         );
     }
 
+    //Checking if seller already have a shop
+    let shop = await Shop.findOne({
+        seller: req.user._id
+    });
+
+    if (shop) {
+        return next(new AppError("One seller can have only one shop"));
+    }
+
     try {
-        const shop = await Shop.create({
+        shop = await Shop.create({
             name: req.body.name,
             image: req.body.image,
+            seller: req.user._id,
             location: req.body.location
         });
 
@@ -65,7 +75,8 @@ exports.createShop = catchAsync(async (req, res, next) => {
 exports.updateShop = catchAsync(async (req, res, next) => {
     //find and update shop with provided id
     const shop = await Shop.findOne({
-        _id: req.params.id
+        _id: req.params.id,
+        seller: req.user._id
     });
 
     if (!shop) {
@@ -79,7 +90,8 @@ exports.updateShop = catchAsync(async (req, res, next) => {
 
     const updatedShop = await Shop.findOneAndUpdate(
         {
-            _id: req.params.id
+            _id: req.params.id,
+            seller: req.user._id
         },
         {
             name: req.body.name,
@@ -103,7 +115,8 @@ exports.updateShop = catchAsync(async (req, res, next) => {
 exports.deleteShop = catchAsync(async (req, res, next) => {
     //find and delete product
     const shop = await Shop.findOne({
-        _id: req.params.id
+        _id: req.params.id,
+        seller: req.user._id
     });
 
     if (!shop) {
