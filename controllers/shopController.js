@@ -37,6 +37,19 @@ exports.getAllShops = catchAsync(async (req, res, next) => {
     });
 });
 
+exports.getShop = catchAsync(async (req, res, next) => {
+    const shop = await Shop.findById(req.params.id);
+    if (!shop) {
+        return next(new AppError("No document found with this ID", 404));
+    }
+    res.status(200).json({
+        status: "success",
+        data: {
+            shop
+        }
+    });
+});
+
 exports.createShop = catchAsync(async (req, res, next) => {
     if (!req.body.name || !req.body.image || !req.body.location) {
         return next(

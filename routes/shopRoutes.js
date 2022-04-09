@@ -15,6 +15,7 @@ router
 
 router
     .route("/:id")
+    .get(shopController.getShop)
     .patch(
         authController.protect,
         authController.restrictTo("seller"),
