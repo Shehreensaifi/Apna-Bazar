@@ -1,0 +1,16 @@
+extends ../base
+
+block links
+    link(rel='stylesheet', href='/css/addShop.css')
+
+block content
+    main
+        form.container
+            input#name(type='text' placeholder='enter name of the shop' name='name' required)
+            input#image(type='text' name='image' placeholder='enter shop image URL' required)
+            input#address(type='text' name='address' placeholder='enter shop address' required)
+            input#address(type='number' name='longitude' placeholder='enter shop longitude' required)
+            input#address(type='number' name='latitude' placeholder='enter shop latitude' required)
+            input(type='submit', value='Submit')
+
+    script(src='/js/addShop.js')

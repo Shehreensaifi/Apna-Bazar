@@ -1,0 +1,16 @@
+extends ../base
+
+block links
+    link(rel='stylesheet', href='/css/editShop.css')
+
+block content
+    main
+        form.container(data-id=`${shop._id}`)
+            input#name(type='text' placeholder='enter name of the shop' name='name' value=`${shop.name}` required)
+            input#image(type='text' name='image' placeholder='enter shop image URL' value=`${shop.image}` required)
+            input#address(type='text' name='address' placeholder='enter shop address' value=`${shop.location.address}` required)
+            input#address(type='number' name='longitude' placeholder='enter shop longitude' value=`${shop.location.coordinates[0]}` required)
+            input#address(type='number' name='latitude' placeholder='enter shop latitude' value=`${shop.location.coordinates[1]}` required)
+            input(type='submit', value='Submit')
+
+    script(src='/js/editShop.js')

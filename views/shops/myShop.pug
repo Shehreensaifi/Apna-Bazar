@@ -1,0 +1,14 @@
+extends ../base
+
+block links
+    link(rel='stylesheet' href='/css/myShop.css')
+
+block content
+    .container
+        img(src=`${shop.image}`, alt='')
+        .details
+            .item-name= `${shop.name}`
+            div= `Address = ${shop.location.address}`
+        a(href=`/shops/${shop._id}/edit`)= 'Edit'
+
+

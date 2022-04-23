@@ -6,6 +6,32 @@ const router = express.Router();
 
 router.get("/", authController.isLoggedIn, viewsController.getHomePage);
 
+//Shop pages
+router.get("/shops", authController.isLoggedIn, viewsController.getAllShopPage);
+router.get(
+    "/shops/new",
+    authController.protect,
+    authController.restrictTo("seller"),
+    viewsController.getNewShopPage
+);
+router.get(
+    "/shops/:id/products",
+    authController.isLoggedIn,
+    viewsController.getProductsOfAShop
+);
+router.get(
+    "/shops/:id/edit",
+    authController.protect,
+    authController.restrictTo("seller"),
+    viewsController.getEditShopPage
+);
+router.get(
+    "/myshop",
+    authController.protect,
+    authController.restrictTo("seller"),
+    viewsController.getCurrentSellerShop
+);
+
 //Seller's all products page
 router.get(
     "/products",

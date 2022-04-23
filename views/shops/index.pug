@@ -1,0 +1,17 @@
+extends ../base
+
+block links
+    link(rel='stylesheet' href='/css/allShops.css')
+
+block content
+    .container
+        each shop in shops
+            form.item(action=`/shops/${shop._id}/products` method='GET')
+                img(src=`${shop.image}`, alt='')
+                .details
+                    .item-name= `${shop.name}`
+                    .item-price ₹#{shop.location.addres}
+                button.button-more Visit Shop
+
+
+

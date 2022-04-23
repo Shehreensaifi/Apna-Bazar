@@ -13,7 +13,7 @@ exports.getAllShops = catchAsync(async (req, res, next) => {
                     $maxDistance: radius,
                     $geometry: {
                         type: "Point",
-                        coordinates: [lat, lng]
+                        coordinates: [lng, lat]
                     }
                 }
             }
@@ -26,7 +26,6 @@ exports.getAllShops = catchAsync(async (req, res, next) => {
         .limitFields()
         .paginate();
 
-    // console.log(features.query._conditions);
     const shops = await features.query;
     res.status(200).json({
         status: "success",

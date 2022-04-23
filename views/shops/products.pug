@@ -1,0 +1,17 @@
+extends ../base
+
+block links
+    link(rel='stylesheet' href='/css/allProductsOfAShop.css')
+
+
+block content
+    .container
+        each product in products
+            form.item(action=`/${product._id}` method='GET')
+                img(src=`${product.image}`, alt='')
+                .details
+                    .item-name= `${product.name}`
+                    .item-price ₹#{product.price}
+                button.button-more More
+
+

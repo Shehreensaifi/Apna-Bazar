@@ -1,6 +1,7 @@
 const axios = require("axios");
 const Product = require("../models/productModel");
 const Order = require("../models/orderModel");
+const Shop = require("../models/shopModel");
 const catchAsync = require("../utils/catchAsync");
 const AppError = require("../utils/appError");
 const DeliveryDetail = require("../models/deliveryDetailModel");
@@ -143,4 +144,55 @@ exports.getCheckoutPage = catchAsync(async (req, res, next) => {
     if (!product) return next(new AppError("No Product Found!", 404));
 
     res.status(200).render("checkout", { address, product });
+});
+
+//SHOPS
+exports.getAllShopPage = catchAsync(async (req, res, next) => {
+    let URL = `${req.protocol}://${req.headers.host}/api/v1/shops`;
+
+    if (req.query.lat && req.query.lng) {
+        URL += `?lat=${req.query.lat}&lng=${req.query.lng}`;
+        if (req.query.radius) URL += `&radius=${req.query.radius}`;
+    }
+
+    const response = await axios({
+        method: "GET",
+        url: URL
+    });
+    if (response.data.status === "success")
+        return res
+            .status(200)
+            .render("shops", { shops: response.data.data.shops });
+    return next(
+        new AppError("Something went wrong. Please try again later", 500)
+    );
+});
+
+exports.getProductsOfAShop = catchAsync(async (req, res, next) => {
+    const shop = await Shop.findById(req.params.id);
+
+    const products = await Product.find({ seller: shop.seller });
+    res.status(200).render("shops/products", { products });
+});
+
+exports.getCurrentSellerShop = catchAsync(async (req, res, next) => {
+    const shop = await Shop.findOne({ seller: req.user._id });
+    if (!shop) return next(new AppError("No shop found"));
+    res.status(200).render("shops/myShop", { shop });
+});
+
+exports.getNewShopPage = catchAsync(async (req, res, next) => {
+    res.status(200).render("shops/new");
+});
+
+exports.getEditShopPage = catchAsync(async (req, res, next) => {
+    const shop = await Shop.findById(req.params.id);
+    if (!shop || !shop.seller.equals(req.user._id))
+        return next(
+            new AppError(
+                "No shop found or shop with this ID doesn't belong to you"
+            )
+        );
+
+    res.status(200).render("shops/edit", { shop });
 });

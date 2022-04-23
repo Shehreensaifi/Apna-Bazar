@@ -1,8 +1,11 @@
 const express = require("express");
+const multer = require("multer");
 const shopController = require("../controllers/shopController");
 const authController = require("../controllers/authController");
 
 const router = express.Router();
+//Required to parse multipart form data and puts them in req.body
+router.use(multer().array());
 
 router
     .route("/")
