@@ -51,9 +51,18 @@ exports.getShop = catchAsync(async (req, res, next) => {
 });
 
 exports.createShop = catchAsync(async (req, res, next) => {
-    if (!req.body.name || !req.body.image || !req.body.location) {
+    if (
+        !req.body.name ||
+        !req.body.image ||
+        !req.body.address ||
+        !req.body.latitude ||
+        !req.body.longitude
+    ) {
         return next(
-            new AppError("Shop name or price or image is not provided.", 404)
+            new AppError(
+                "Shop name or image or address or latitude  or longitude is not provided.",
+                400
+            )
         );
     }
 
@@ -66,12 +75,18 @@ exports.createShop = catchAsync(async (req, res, next) => {
         return next(new AppError("One seller can have only one shop"));
     }
 
+    const location = {
+        type: "Point",
+        coordinates: [req.body.longitude, req.body.latitude],
+        address: req.body.address
+    };
+
     try {
         shop = await Shop.create({
             name: req.body.name,
             image: req.body.image,
             seller: req.user._id,
-            location: req.body.location
+            location: location
         });
 
         res.status(201).json({
