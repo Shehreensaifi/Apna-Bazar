@@ -13,4 +13,5 @@ block content
                         .item-name= `${shop.name}`
                     div= `Address : ${shop.location.address}`
                     a.button(href=`/shops/${shop._id}/edit`) Edit
-
+                    button.button-remove(data-id=`${shop._id}`) Remove
+    script(src='/js/myShop.js')

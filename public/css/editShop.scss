@@ -16,6 +16,21 @@ main {
     border-radius: 1rem;
     padding: 1rem;
 }
+input[type="submit"] {
+    background: #18ffff;
+    border-radius: 20px;
+    border: none;
+    color: black;
+    padding: 8px;
+    width: 100%;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    opacity: 0.8;
+}
 $radius: 0.5rem;
 *,
 *::before,
@@ -69,15 +84,4 @@ $radius: 0.5rem;
     top: -0.5rem;
     font-size: 0.8rem;
     left: 0.8rem;
-}
-input[type="submit"] {
-    margin-top: 0.5rem;
-    background-color: rgb(112, 111, 110);
-    border-style: none;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-}
-input[type="submit"]:hover {
-    opacity: 0.8;
 }

@@ -16,6 +16,21 @@ main {
     border-radius: 1rem;
     padding: 1rem;
 }
+input[type="submit"] {
+    background: #18ffff;
+    border-radius: 20px;
+    border: none;
+    color: black;
+    padding: 8px;
+    width: 100%;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    opacity: 0.8;
+}
 $radius: 0.5rem;
 *,
 *::before,

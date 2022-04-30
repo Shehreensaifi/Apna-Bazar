@@ -1,14 +1,49 @@
 body {
     background: #eee5e9;
 }
+.button-remove {
+    margin-top: 10px;
+    text-decoration: none;
+    color: white;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.9rem;
+    margin-left: 35px;
+    border-radius: 0.25rem;
+}
+.button-remove:hover {
+    opacity: 0.8;
+}
+.button-remove {
+    border: none;
+    background: rgb(211, 11, 11);
+}
+
+a.button:link,
+a.button:visited {
+    margin-top: 10px;
+    text-decoration: none;
+    color: white;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.9rem;
+    margin-right: 35px;
+    border-radius: 0.25rem;
+    border: none;
+    background: rgb(211, 11, 11);
+}
+
+a.button:hover,
+a.button:active {
+    background-color: #ad221f;
+}
 .container {
     background: #eee5e9;
     margin: 80px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
     grid-gap: 30px;
     align-items: center;
 }
+
 .grid > article {
     background: #eee5e9;
     border: none;
