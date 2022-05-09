@@ -3,15 +3,18 @@ body {
 }
 .container {
     background: #eee5e9;
-    margin: 80px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 30px;
+    padding: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 350px));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
     align-items: center;
 }
 .image-resize {
-    height: 50vh;
-    width: 50vh;
+    height: 40vh;
+    width: 100%;
     max-width: 80vw;
     object-fit: cover;
     object-position: center;
@@ -41,7 +44,7 @@ body {
     text-transform: uppercase;
 }
 
-.text button {
+.button-more {
     background: #060b23;
     border-radius: 20px;
     border: none;
@@ -51,17 +54,5 @@ body {
     font-weight: 600;
     text-transform: uppercase;
     cursor: pointer;
-}
-@media (max-width: 768px) {
-    .grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-@media (max-width: 500px) {
-    .grid {
-        grid-template-columns: repeat(1, 1fr);
-    }
-    .grid > article {
-        text-align: center;
-    }
+    margin-bottom: 5px;
 }

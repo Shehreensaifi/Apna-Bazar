@@ -18,7 +18,7 @@ async function deleteRequest(shopId) {
         });
         if (res.status === 204) {
             alert(`Successfully removed!`);
-            return location.assign("/myshop");
+            return location.assign("/products");
         }
         console.log(res);
         alert("OOps something went wrong");

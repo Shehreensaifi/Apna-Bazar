@@ -10,6 +10,8 @@ body {
     display: flex;
     border: 5px solid rgba(0, 0, 0, 0.3);
     border-radius: 5px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 input[type="submit"] {
     background-color: rgb(112, 111, 110);
@@ -21,17 +23,21 @@ input[type="submit"] {
 input[type="submit"]:hover {
     opacity: 0.8;
 }
+
 .container {
     background: #eee5e9;
-    margin: 60px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 30px;
+    padding: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 350px));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
     align-items: center;
 }
 .image-resize {
-    height: 50vh;
-    width: 50vh;
+    height: 40vh;
+    width: 100%;
     max-width: 80vw;
     object-fit: cover;
     object-position: center;
@@ -71,17 +77,4 @@ input[type="submit"]:hover {
     font-weight: 600;
     text-transform: uppercase;
     cursor: pointer;
-}
-@media (max-width: 768px) {
-    .grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-@media (max-width: 500px) {
-    .grid {
-        grid-template-columns: repeat(1, 1fr);
-    }
-    .grid > article {
-        text-align: center;
-    }
 }
