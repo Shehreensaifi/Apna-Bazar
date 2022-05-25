@@ -1,0 +1,240 @@
+[33mcommit a94fac22d46856e75228b735a1f0163e16a1f140[m[33m ([m[1;36mHEAD -> [m[1;32mdev[m[33m)[m
+Merge: 8d7690e 158e12e
+Author: Shehreensaifi <shehreensaifi2001@gmail.com>
+Date:   Mon May 23 14:01:15 2022 +0530
+
+    Merge branch 'dev' of https://github.com/Rishabh-Rawat192/Apna-Bazar into dev
+
+[33mcommit 158e12edd5e6a7b1d627a17d906b8eded3d01837[m
+Author: Rishabh Rawat <rishabhrawat192@gmail.com>
+Date:   Sat May 21 17:13:19 2022 +0530
+
+    added product search feature at home page
+
+[33mcommit 5654e22a370c56805ceef52cba7a8c8174400eb4[m
+Merge: be253e0 bc82af6
+Author: Rishabh Rawat <53406022+Rishabh-Rawat192@users.noreply.github.com>
+Date:   Sat May 14 13:15:37 2022 +0530
+
+    Merge pull request #15 from Shehreensaifi/dev
+    
+    All UI part for shops created
+
+[33mcommit 8d7690e605e99cf1daed63d260db24f44a27e526[m
+Author: Shehreensaifi <shehreensaifi2001@gmail.com>
+Date:   Mon May 9 13:25:41 2022 +0530
+
+    deploy
+
+[33mcommit bc82af653f69e50c4cf504777a14bf58f13a62b5[m[33m ([m[1;31morigin/dev[m[33m)[m
+Author: Shehreensaifi <shehreensaifi2001@gmail.com>
+Date:   Mon May 9 12:36:55 2022 +0530
+
+    Remove bugs in All Shops
+
+[33mcommit 0496c25bddeab53cd85dbf2d53d5e73fef2a9599[m
+Author: Shehreensaifi <shehreensaifi2001@gmail.com>
+Date:   Sat Apr 30 13:34:05 2022 +0530
+
+    Add remove option in shop ,and enhance frontend
+
+[33mcommit 487f272a9043805e314c77472f3e538fa27bee35[m
+Author: Shehreensaifi <shehreensaifi2001@gmail.com>
+Date:   Thu Apr 28 20:57:16 2022 +0530
+
+    Add all Functionality related to shops
+
+[33mcommit be253e076c5c5e1b924a29d4c1517c530c7f6f81[m
+Author: Rishabh Rawat <rishabhrawat192@gmail.com>
+Date:   Sat Apr 23 17:10:06 2022 +0530
+
+    created all viewRoutes and viewControllers for shops
+
+[33mcommit b7340d90718864f170f351ff3d25c4720f694e28[m
+Author: Rishabh Rawat <rishabhrawat192@gmail.com>
+Date:   Sat Apr 23 10:16:38 2022 +0530
+
+    Now taking lat, lng and address from the user instead of formatted location itself
+
+[33mcommit 8f87954bae212568f7a4bb0ae6902b53efcebc08[m
+Author: Rishabh Rawat <rishabhrawat192@gmail.com>
+Date:   Sat Apr 9 11:35:05 2022 +0530
+
+    added getShop route to get shop details using their id
+
+[33mcommit cfdcda4f93a87af605a7c3fa2736a5b82b2222df[m
+Author: Rishabh Rawat <rishabhrawat192@gmail.com>
+Date:   Sat Apr 9 11:04:11 2022 +0530
+
+    added authorization middlewares to shop routes
+
+[33mcommit 7d7571bf7e10e607df33108179237dc6b90abba0[m
+Author: Rishabh Rawat <rishabhrawat192@gmail.com>
+Date:   Sun Apr 3 17:13:16 2022 +0530
+
+    added shop model and created its CRUD operation routes and added moreFields as argument to filter more query parameters by our choice dynamically
+
+[33mcommit 7334f8e79ef4d6211a38dad74ba30625e3d96db2[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;31mheroku/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Rishabh Rawat <rishabhrawat192@gmail.com>
+Date:   Sat Apr 2 15:22:14 2022 +0530
+
+    updated packages
+
+[33mcommit a78c48eceb9881e226118e4cb62f8ff98d0f2ef4[m
+Author: Rishabh Rawat <rishabhrawat192@gmail.com>
+Date:   Fri Dec 3 12:22:15 2021 +0530
+
+    Improved UI consistency of homepage cards and seller's product's page cards
+
+[33mcommit 84dd0fdf44294bc1ca0ae855101b2b05172ee3bb[m
+Author: Rishabh Rawat <rishabhrawat192@gmail.com>
+Date:   Fri Dec 3 11:46:49 2021 +0530
+
+    updating packages
+
+[33mcommit 176ec2e74073703459cf7f84480f030f9591d2be[m
+Author: Rishabh Rawat <rishabhrawat192@gmail.com>
+Date:   Mon Feb 1 16:34:51 2021 +0530
+
+    updated packages
+
+[33mcommit 4e4e80dfafc06b3541834f3654048ffb63627482[m
+Author: Rishabh Rawat <rishabhrawat192@gmail.com>
+Date:   Mon Feb 1 16:27:31 2021 +0530
+
+    modified navbar from fixed to static positioned
+
+[33mcommit 12c2b9dadab7b60669cf0b5de4fe56340cf0cb8f[m
+Author: Rishabh Rawat <rishabhrawat192@gmail.com>
+Date:   Mon Dec 28 11:19:56 2020 +0530
+
+    updated order and order detials page
+
+[33mcommit 9685021fb583ab6175865c02231888394a8eb8a0[m
+Author: Rishabh Rawat <rishabhrawat192@gmail.com>
+Date:   Mon Dec 28 08:09:08 2020 +0530
+
+    added address feature with CRUD to frontend(website)
+
+[33mcommit 3882a89f901fe1bb654c017132542d374d3cb09b[m
+Author: Rishabh Rawat <rishabhrawat192@gmail.com>
+Date:   Tue Dec 22 11:10:20 2020 +0530
+
+    improved createOrder controller
+
+[33mcommit 27a36a541a55fc31468d21a235d668e2c0e24c08[m
+Author: Rishabh Rawat <rishabhrawat192@gmail.com>
+Date:   Tue Dec 22 10:59:02 2020 +0530
+
+    added address to user orders
+
+[33mcommit c7d6a76589246b0e8ff0f865182c5807c332cdae[m
+Author: Rishabh Rawat <rishabhrawat192@gmail.com>
+Date:   Mon Dec 21 21:32:14 2020 +0530
+
+    created CRUD for delivery details of users
+
+[33mcommit 46dd2c51d833416f85a96a0c472aa3bc1592f148[m
+Merge: 19fea7d ad43069
+Author: Rishabh Rawat <rishabhrawat192@gmail.com>
+Date:   Mon Dec 21 10:41:27 2020 +0530
+
+    Merge branch 'master' of https://github.com/Rishabh-Rawat192/Apna-Bazar
+
+[33mcommit ad43069530b06e56c518430fd4d2466c6c8287d6[m
+Merge: 44e73bc 205a74f
+Author: Rishabh Rawat <53406022+Rishabh-Rawat192@users.noreply.github.com>
+Date:   Mon Dec 21 10:39:28 2020 +0530
+
+    Merge pull request #2 from Rishabh-Rawat192/dependabot/npm_and_yarn/ini-1.3.8
+    
+    Bump ini from 1.3.5 to 1.3.8
+
+[33mcommit 205a74f0c2d23db9ae60b3717e3eaa168cc838f5[m
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Sun Dec 13 01:04:31 2020 +0000
+
+    Bump ini from 1.3.5 to 1.3.8
+    
+    Bumps [ini](https://github.com/isaacs/ini) from 1.3.5 to 1.3.8.
+    - [Release notes](https://github.com/isaacs/ini/releases)
+    - [Commits](https://github.com/isaacs/ini/compare/v1.3.5...v1.3.8)
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+[33mcommit 19fea7d8f3214be8a821ca95e84f3ccece5df736[m
+Author: Rishabh Rawat <rishabhrawat192@gmail.com>
+Date:   Sat Sep 5 16:39:50 2020 +0530
+
+    updated theme color to HTML head
+
+[33mcommit 44e73bc96d86e53e8afe8c0cee6fb6447d651c47[m
+Author: Rishabh Rawat <rishabhrawat192@gmail.com>
+Date:   Sat Sep 5 16:36:07 2020 +0530
+
+    added theme color to HTML head
+
+[33mcommit c89e9e0caf8c1e856544cbb3d98ac04e2b40ecd9[m
+Merge: 5325ab1 f08b8f7
+Author: Rishabh Rawat <53406022+Rishabh-Rawat192@users.noreply.github.com>
+Date:   Fri Sep 4 06:55:01 2020 +0530
+
+    Merge pull request #1 from Rishabh-Rawat192/dependabot/npm_and_yarn/bl-2.2.1
+    
+    Bump bl from 2.2.0 to 2.2.1
+
+[33mcommit f08b8f7656fc6b30b874082fbc4129e8e58b35b9[m
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Thu Sep 3 22:18:07 2020 +0000
+
+    Bump bl from 2.2.0 to 2.2.1
+    
+    Bumps [bl](https://github.com/rvagg/bl) from 2.2.0 to 2.2.1.
+    - [Release notes](https://github.com/rvagg/bl/releases)
+    - [Commits](https://github.com/rvagg/bl/compare/v2.2.0...v2.2.1)
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+[33mcommit 5325ab1658bb6ad29b77f0c64a0e699884fb4a47[m
+Author: Rishabh Rawat <rishabhrawat192@gmail.com>
+Date:   Wed Sep 2 14:58:29 2020 +0530
+
+    added margin-top to make card 100% visible
+
+[33mcommit fcae94f6a76e6f41f272d108e6669f3762048417[m
+Author: Rishabh Rawat <rishabhrawat192@gmail.com>
+Date:   Mon Aug 31 16:57:26 2020 +0530
+
+    made navbar fixed and some UI improvements
+
+[33mcommit 22add132f49e3f632db9f2673df84aaa530f1732[m
+Author: Rishabh Rawat <rishabhrawat192@gmail.com>
+Date:   Sun Aug 30 08:00:54 2020 +0530
+
+    upgraded UI
+
+[33mcommit 37d395b6313574532426ed5a6efe2e3487a11fd6[m
+Author: Rishabh Rawat <rishabhrawat192@gmail.com>
+Date:   Sun Aug 9 13:25:33 2020 +0530
+
+    added product remove feature in website
+
+[33mcommit f92f1bfa8ae3120aa399d64b839ec5deb1bf62ef[m
+Author: Rishabh Rawat <rishabhrawat192@gmail.com>
+Date:   Fri Aug 7 15:17:38 2020 +0530
+
+    UI improvements
+
+[33mcommit 8c40126dae815038bc0cba660cc00c049164290d[m
+Author: Rishabh Rawat <rishabhrawat192@gmail.com>
+Date:   Thu Aug 6 14:44:53 2020 +0530
+
+    added product's edit page
+
+[33mcommit b6b1ba916a63f897c46774635c83100fb81982c6[m
+Author: Rishabh Rawat <rishabhrawat192@gmail.com>
+Date:   Wed Aug 5 16:14:42 2020 +0530
+
+    added order status changing feature from website
+
+[33mcommit 5b5de4c89803c38ece0e095bee5c2a42e

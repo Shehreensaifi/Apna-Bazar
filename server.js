@@ -22,7 +22,11 @@ mongoose
         useFindAndModify: false,
         useCreateIndex: true
     })
-    .then(() => console.log("DB connection successful"));
+    .then(() => console.log("DB connection successful"))
+    .catch(error => {
+        console.log("ERROR MESSAGE ");
+        console.log(error);
+    });
 
 const port = process.env.PORT || 3000;
 const server = app.listen(port, () => {
