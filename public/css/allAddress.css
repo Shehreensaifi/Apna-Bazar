@@ -27,16 +27,23 @@ p {
     border-style: none;
     color: white;
     padding: 0.5rem 0.7rem;
-    border-radius: 0.3rem;
+    margin-bottom: 0.5rem;
+    border-radius: 20px;
 }
 
 .remove {
     background-color: rgb(253, 65, 8);
+    width: 120px;
+    text-align: center;
 }
 #edit-btn {
     background-color: orange;
+    width: 120px;
+    text-align: center;
 }
 
 #add-btn {
     background-color: rgb(13, 128, 163);
+    margin-top: 5rem;
+    margin-bottom: 5rem;
 }

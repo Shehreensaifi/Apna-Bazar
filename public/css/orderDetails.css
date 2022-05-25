@@ -1,6 +1,6 @@
 .item,
 .extra-details {
-    width: 70vh;
+    width: 80vh;
     max-width: 80vw;
     text-transform: capitalize;
 }
@@ -27,6 +27,7 @@ img {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    font-weight: bold;
 }
 .sub-detail-2 {
     margin-top: 5px;
@@ -46,11 +47,12 @@ img {
 }
 
 button {
-    border-radius: 0.25rem;
-    margin: 2px auto;
     padding: 0.6rem 0.8rem;
     border: none;
     color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 100px;
 }
 button:hover {
     opacity: 0.8;

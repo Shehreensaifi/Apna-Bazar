@@ -7,6 +7,8 @@ block content
     main
         .extra-details
             .status=`status: ${order.status}`
+            hr
+            div=`order id: ${order._id}`
             div=`Quantity: ${order.quantity}`
             div=`Total: ₹${order.totalPrice}`
             div=`Address: ${order.address.address}`
@@ -17,6 +19,7 @@ block content
                 .sub-detail-1
                     div=order.product.name
                     div.price= `₹${order.product.price}`
+                hr    
                 .sub-detail-2
                     button#cancel-button Cancel
                     if user.role==='user'
