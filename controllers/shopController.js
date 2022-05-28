@@ -2,7 +2,6 @@ const Shop = require("../models/shopModel");
 const catchAsync = require("../utils/catchAsync");
 const AppError = require("../utils/appError");
 const APIFeatures = require("../utils/apiFeatures");
-
 exports.getAllShops = catchAsync(async (req, res, next) => {
     let condition = {};
     if (req.query.lat && req.query.lng) {
@@ -19,13 +18,11 @@ exports.getAllShops = catchAsync(async (req, res, next) => {
             }
         };
     }
-
     const features = new APIFeatures(Shop.find(condition), req.query)
         .filter(["radius", "lat", "lng"])
         .sort()
         .limitFields()
         .paginate();
-
     const shops = await features.query;
     res.status(200).json({
         status: "success",
@@ -35,7 +32,6 @@ exports.getAllShops = catchAsync(async (req, res, next) => {
         }
     });
 });
-
 exports.getShop = catchAsync(async (req, res, next) => {
     const shop = await Shop.findById(req.params.id);
     if (!shop) {
@@ -48,7 +44,6 @@ exports.getShop = catchAsync(async (req, res, next) => {
         }
     });
 });
-
 exports.createShop = catchAsync(async (req, res, next) => {
     if (
         !req.body.name ||
@@ -64,22 +59,18 @@ exports.createShop = catchAsync(async (req, res, next) => {
             )
         );
     }
-
     //Checking if seller already have a shop
     let shop = await Shop.findOne({
         seller: req.user._id
     });
-
     if (shop) {
         return next(new AppError("One seller can have only one shop"));
     }
-
     const location = {
         type: "Point",
         coordinates: [req.body.longitude, req.body.latitude],
         address: req.body.address
     };
-
     try {
         shop = await Shop.create({
             name: req.body.name,
@@ -87,7 +78,6 @@ exports.createShop = catchAsync(async (req, res, next) => {
             seller: req.user._id,
             location: location
         });
-
         res.status(201).json({
             status: "success",
             data: {
@@ -98,14 +88,12 @@ exports.createShop = catchAsync(async (req, res, next) => {
         return next(error);
     }
 });
-
 exports.updateShop = catchAsync(async (req, res, next) => {
     //find and update shop with provided id
     const shop = await Shop.findOne({
         _id: req.params.id,
         seller: req.user._id
     });
-
     if (!shop) {
         return next(
             new AppError(
@@ -114,6 +102,12 @@ exports.updateShop = catchAsync(async (req, res, next) => {
             )
         );
     }
+
+    //Adding location
+    const { location } = shop;
+    if (req.body.address) location.address = req.body.address;
+    if (req.body.longitude) location.coordinates[0] = req.body.longitude;
+    if (req.body.latitude) location.coordinates[1] = req.body.latitude;
 
     const updatedShop = await Shop.findOneAndUpdate(
         {
@@ -123,14 +117,13 @@ exports.updateShop = catchAsync(async (req, res, next) => {
         {
             name: req.body.name,
             image: req.body.image,
-            location: req.body.location
+            location: location
         },
         {
             new: true,
             omitUndefined: true
         }
     );
-
     res.status(200).json({
         status: "success",
         data: {
@@ -138,14 +131,12 @@ exports.updateShop = catchAsync(async (req, res, next) => {
         }
     });
 });
-
 exports.deleteShop = catchAsync(async (req, res, next) => {
     //find and delete product
     const shop = await Shop.findOne({
         _id: req.params.id,
         seller: req.user._id
     });
-
     if (!shop) {
         return next(
             new AppError(
@@ -154,9 +145,7 @@ exports.deleteShop = catchAsync(async (req, res, next) => {
             )
         );
     }
-
     await shop.deleteOne();
-
     res.status(204).json({
         status: "success",
         data: null
